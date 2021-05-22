@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_begins/widgets/drawer.dart';
 
 // Creating a stateless object. Name is HomePage
 class HomePage extends StatelessWidget {
   final int days = 30;
-
   const HomePage({Key? key}) : super(key: key);
 
   @override
@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
           child: Text("Welcome to $days Flutter"),
         ),
       ),
-      drawer: Drawer(),
+      drawer: MyDrawer()
     );
   }
 }
