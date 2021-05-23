@@ -16,7 +16,7 @@ class ProductWidget extends StatelessWidget {
         onTap: () {
           print("${products.name} pressed");
         },
-        leading: Image.network(products.imageUrl),
+        leading: Image.network(products.image),
         title: Text(products.name),
         subtitle: Text(products.desc),
         trailing: Text(

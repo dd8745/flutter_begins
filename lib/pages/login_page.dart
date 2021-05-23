@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_begins/utils/routes.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -35,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white,
+      color: context.canvasColor,
       child: Center(
           // Scroll View wrapping the whole Layout
           child: SingleChildScrollView(
@@ -107,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                       height: 40,
                     ),
                     Material(
-                      color: Colors.deepPurple,
+                      color: context.theme.buttonColor,
                       borderRadius:
                           BorderRadius.circular(changeButton ? 50 : 8),
                       child: InkWell(
