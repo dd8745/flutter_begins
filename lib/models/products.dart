@@ -4,7 +4,7 @@ class Products {
   final num price;
   final String color;
   final String desc;
-  final String imageUrl;
+  final String image;
 
   Products(
       {required this.id,
@@ -12,18 +12,43 @@ class Products {
       required this.price,
       required this.color,
       required this.desc,
-      required this.imageUrl});
+      required this.image});
+
+  factory Products.fromMap(Map<String, dynamic> map) {
+    return Products(
+      id: map["id"],
+      name: map["name"],
+      desc: map["desc"],
+      price: map["price"],
+      color: map["color"],
+      image: map["image"],
+    );
+  }
+
+  toMap() => {
+        "id": id,
+        "name": name,
+        "desc": desc,
+        "price": price,
+        "color": color,
+        "image": image
+      };
 }
 
 class catalogModel {
-  static final products = [
-    Products(
-        id: 001,
-        name: "iPhone 12 Pro",
-        desc: "Apple iPhone 12th generation",
-        price: 999,
-        color: "#33505a",
-        imageUrl:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRISJ6msIu4AU9_M9ZnJVQVFmfuhfyJjEtbUm3ZK11_8IV9TV25-1uM5wHjiFNwKy99w0mR5Hk&usqp=CAc")
-  ];
+  /* static final catModel = catalogModel._internal();
+
+  catalogModel._internal();
+
+  factory catalogModel() => catModel;*/
+
+  static List<Products> products = [];
+
+  // get Item by Id
+
+  static Products getById(int id) =>
+      products.firstWhere((element) => element.id == id, orElse: null);
+
+  //Get Item by position
+  static Products getByPosition(int pos) => products[pos];
 }
